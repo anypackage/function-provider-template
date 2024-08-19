@@ -1,49 +1,6 @@
 function New-PackageInfo {
     [CmdletBinding()]
     param (
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [ValidateNotNullOrEmpty()]
-        [string]
-        $Name,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [ValidateNotNullOrEmpty()]
-        [string]
-        $Version,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [string]
-        $Description,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [PackageSourceInfo]
-        $Source,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [hashtable]
-        $Metadata,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [PackageDependency[]]
-        $Dependencies,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [PackageProviderInfo]
-        $ProviderInfo
-    )
-
-    if ($PSBoundParameters['Version']) {
-        $packageVersion = $Version
-    } else {
-        $packageVersion = $null
-    }
-
-    [PackageInfo]::new($Name, $packageVersion, $Source, $Description, $Dependencies, $Metadata, $ProviderInfo)
-}
-
-function New-PackageInfo {
-    [CmdletBinding()]
-    param (
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
         [ValidateNotNullOrEmpty()]
         [string]
